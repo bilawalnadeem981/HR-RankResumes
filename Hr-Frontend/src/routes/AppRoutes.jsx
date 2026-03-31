@@ -11,23 +11,36 @@ import CandidatesPage from "../pages/CandidatesPage";
 import AIAnalysisPage from "../pages/AIAnalysisPage";
 import ShortlistedPage from "../pages/ShortlistedPage";
 import SettingsPage from "../pages/SettingsPage";
+import PublicLayout from '../components/layout/PublicLayout';
+import DashboardLayout from '../components/layout/DashboardLayout';
+import { useScrollToTop } from '../utils/common/scroll';
 
 
-const AppRoutes = () => (
-    <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/upload" element={<UploadPage />} />
-        <Route path="/resumes" element={<ResumePage />} />
-        <Route path="/jobs" element={<JobPage />} />
-        <Route path="/candidates" element={<CandidatesPage/>} />
-        <Route path="/analysis" element={<AIAnalysisPage />} />
-        <Route path="/shortlisted" element={<ShortlistedPage />} />
-        <Route path="/settings" element={<SettingsPage />} />
-        
+const AppRoutes = () => {
+    useScrollToTop();
+    
+    return (
+        <Routes>
+            {/* Public Routes */}
+            <Route element={<PublicLayout />}>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/signup" element={<SignupPage />} />
+                <Route path="/login" element={<LoginPage />} />
+            </Route>
+
+            {/* Dashboard Routes */}
+            <Route element={<DashboardLayout />}>
+                <Route path="/dashboard" element={<DashboardPage />} />
+                <Route path="/upload" element={<UploadPage />} />
+                <Route path="/resumes" element={<ResumePage />} />
+                <Route path="/jobs" element={<JobPage />} />
+                <Route path="/candidates" element={<CandidatesPage/>} />
+                <Route path="/analysis" element={<AIAnalysisPage />} />
+                <Route path="/shortlisted" element={<ShortlistedPage />} />
+                <Route path="/settings" element={<SettingsPage />} />
+            </Route>
         </Routes>
-);
+    );
+};
 
 export default AppRoutes;

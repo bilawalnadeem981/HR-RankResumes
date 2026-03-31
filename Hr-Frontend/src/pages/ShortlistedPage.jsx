@@ -1,4 +1,3 @@
-import React from "react";
 import { shortlistedPageData } from "../data";
 
 // Optional: yahan ek component bana sakte ho jo table dikhaye
@@ -31,7 +30,7 @@ const ShortlistedTable = () => {
 
 const ShortlistedPage = () => {
   return (
-    <div className="layout-container">
+    <div className="w-full">
       <h1 className="page-title mb-6">Shortlisted Candidates</h1>
       <ShortlistedTable />
     </div>

@@ -1,4 +1,4 @@
-const Navbar = () => {
+const Header = () => {
   return (
     <div className="bg-white shadow p-4 flex justify-between">
 
@@ -14,4 +14,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;
