@@ -1,6 +1,4 @@
 import { shortlistedPageData } from "../data";
-
-// Optional: yahan ek component bana sakte ho jo table dikhaye
 const ShortlistedTable = () => {
 
   return (

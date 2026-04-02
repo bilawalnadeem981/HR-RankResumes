@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { handleFormChange } from "../../utils/common/helper";
 
 const LoginForm = () => {
-  const navigate = useNavigate(); // 🔥 add this
+  const navigate = useNavigate(); 
 
   const [formData, setFormData] = useState({
     email: "",
@@ -17,10 +17,7 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Login Data:", formData);
-
-    // 🔥 yahan future me API login hoga
-
-    // ✅ TEMP redirect (test ke liye)
+  
     navigate("/dashboard");
   };
 

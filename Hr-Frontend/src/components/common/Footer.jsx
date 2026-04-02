@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -23,9 +23,26 @@ const Footer = () => {
             </p>
 
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-indigo-600 transition">𝕏</a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-indigo-600 transition">in</a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-indigo-600 transition">f</a>
+              <Link
+                to="/twitter"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-indigo-600 transition"
+              >
+                𝕏
+              </Link>
+
+              <Link
+                to="/linkedin"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-indigo-600 transition"
+              >
+                in
+              </Link>
+
+              <Link
+                to="/facebook"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-indigo-600 transition"
+              >
+                f
+              </Link>
             </div>
           </div>
 
@@ -33,10 +50,10 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-bold text-lg mb-6">Product</h4>
             <ul className="space-y-4">
-              <li><a href="#" className="hover:text-indigo-500 transition">Features</a></li>
-              <li><a href="#" className="hover:text-indigo-500 transition">Pricing</a></li>
-              <li><a href="#" className="hover:text-indigo-500 transition">Integration</a></li>
-              <li><a href="#" className="hover:text-indigo-500 transition">Changelog</a></li>
+              <li><Link to="/features" className="hover:text-indigo-500 transition">Features</Link></li>
+              <li><Link to="/pricing" className="hover:text-indigo-500 transition">Pricing</Link></li>
+              <li><Link to="/integration" className="hover:text-indigo-500 transition">Integration</Link></li>
+              <li><Link to="/changelog" className="hover:text-indigo-500 transition">Changelog</Link></li>
             </ul>
           </div>
 
@@ -44,10 +61,10 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-bold text-lg mb-6">Company</h4>
             <ul className="space-y-4">
-              <li><a href="#" className="hover:text-indigo-500 transition">About Us</a></li>
-              <li><a href="#" className="hover:text-indigo-500 transition">Careers</a></li>
-              <li><a href="#" className="hover:text-indigo-500 transition">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-indigo-500 transition">Terms of Service</a></li>
+              <li><Link to="/about" className="hover:text-indigo-500 transition">About Us</Link></li>
+              <li><Link to="/careers" className="hover:text-indigo-500 transition">Careers</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-indigo-500 transition">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:text-indigo-500 transition">Terms of Service</Link></li>
             </ul>
           </div>
 
@@ -78,9 +95,9 @@ const Footer = () => {
           </p>
 
           <div className="mt-4 md:mt-0 flex justify-center md:justify-start gap-8 text-sm">
-            <a href="#" className="hover:text-white transition">Status</a>
-            <a href="#" className="hover:text-white transition">Sitemap</a>
-            <a href="#" className="hover:text-white transition">Cookies</a>
+            <Link to="/status" className="hover:text-white transition">Status</Link>
+            <Link to="/sitemap" className="hover:text-white transition">Sitemap</Link>
+            <Link to="/cookies" className="hover:text-white transition">Cookies</Link>
           </div>
         </div>
 
