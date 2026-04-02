@@ -1,10 +1,8 @@
-import React from "react";
-
 const SettingsPage = () => {
   return (
-    <div className="min-h-screen p-6 bg-gray-100">
+    <div className="w-full">
       <h1 className="page-title mb-4">Settings</h1>
-      <p>Settings page content will go here.</p>
+      <p className="text-gray-600">Settings page content will go here.</p>
     </div>
   );
 };
