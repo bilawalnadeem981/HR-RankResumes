@@ -3,6 +3,7 @@ import { resumeData } from "../../data";
 import { filterDataBySearchTerm, getStatusColor } from "../../utils/common/helper";
 
 const ResumeTable = ({ searchTerm, filterStatus }) => {
+  // Filter resumes based on searchTerm and filterStatus
   const searched = filterDataBySearchTerm(resumeData, searchTerm, ["name", "role"]);
   const filteredResumes = searched.filter(r => filterStatus === "All" || r.status === filterStatus);
 

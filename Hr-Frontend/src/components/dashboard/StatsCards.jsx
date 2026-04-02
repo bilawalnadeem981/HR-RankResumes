@@ -7,11 +7,14 @@ const StatsCards = () => {
     <div className="grid md:grid-cols-4 gap-4 mb-6">
       {statsData.map((item, index) => {
         const Icon = icons[item.icon];
-       if (!Icon) {
+
+        // ✅ Safety check (kabhi crash nahi hoga)
+        if (!Icon) {
           console.log("Missing icon:", item.icon);
           return null;
         }
-         return (
+
+        return (
           <div
             key={index}
             className="card-md flex items-center gap-3"

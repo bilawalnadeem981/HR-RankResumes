@@ -1,5 +1,8 @@
 import React from "react";
 import { workflowSteps, workflowBottomItems, gradientMap } from "../../data";
+
+
+
 const Workflow = () => {
   return (
     <section className="py-24 bg-gradient-to-br from-indigo-50 via-white to-violet-50 relative overflow-hidden">

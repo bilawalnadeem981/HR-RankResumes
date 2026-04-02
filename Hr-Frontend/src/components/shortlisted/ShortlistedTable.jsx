@@ -1,3 +1,4 @@
+// src/components/shortlisted/ShortlistedTable.jsx
 import React from "react";
 import { shortlistedData } from "../../data";
 
