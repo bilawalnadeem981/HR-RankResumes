@@ -18,7 +18,6 @@ const CTA = () => {
             recruitment with AI-powered resume ranking. No credit card required.
           </p>
 
-          {/* Features */}
           <div className="space-y-4">
             {ctaFeatures.map((text, i) => (
               <div key={i} className="flex items-center gap-3">
@@ -31,7 +30,6 @@ const CTA = () => {
           </div>
         </div>
 
-        {/* Right Stats Card */}
         <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-xl space-y-8">
           <div className="grid grid-cols-2 gap-6">
             {ctaStats.map((stat) => (

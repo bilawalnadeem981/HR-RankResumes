@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @layer components {
-    /* Layouts */
     .layout-container {
         @apply min-h-screen bg-gray-100 p-6;
     }
@@ -9,7 +8,6 @@
         @apply bg-white min-h-screen flex items-center px-4 py-16;
     }
 
-    /* Cards */
     .card {
         @apply bg-white p-4 rounded shadow;
     }
@@ -23,7 +21,6 @@
         @apply bg-white p-6 rounded-xl shadow-lg;
     }
     
-    /* Typography */
     .page-title {
         @apply text-2xl font-bold;
     }
@@ -31,7 +28,6 @@
         @apply text-lg font-bold mb-3;
     }
 
-    /* Tables */
     .table-custom {
         @apply w-full border text-left;
     }
@@ -45,7 +41,6 @@
         @apply text-center hover:bg-gray-50;
     }
 
-    /* Forms */
     .form-card {
         @apply bg-white rounded-2xl shadow-xl p-8 w-full max-w-md border border-gray-100;
     }

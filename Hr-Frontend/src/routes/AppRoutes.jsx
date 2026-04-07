@@ -13,22 +13,20 @@ import ShortlistedPage from "../pages/ShortlistedPage";
 import SettingsPage from "../pages/SettingsPage";
 import PublicLayout from '../components/layout/PublicLayout';
 import DashboardLayout from '../components/layout/DashboardLayout';
-import { useScrollToTop } from '../utils/common/scroll';
 
+import { useScrollToTop } from "../utils/common/scroll";
 
 const AppRoutes = () => {
     useScrollToTop();
     
     return (
         <Routes>
-            {/* Public Routes */}
             <Route element={<PublicLayout />}>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="/login" element={<LoginPage />} />
             </Route>
 
-            {/* Dashboard Routes */}
             <Route element={<DashboardLayout />}>
                 <Route path="/dashboard" element={<DashboardPage />} />
                 <Route path="/upload" element={<UploadPage />} />

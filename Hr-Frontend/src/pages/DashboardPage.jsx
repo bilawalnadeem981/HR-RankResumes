@@ -7,29 +7,23 @@ const DashboardPage = () => {
   return (
     <div className="space-y-6">
 
-        {/* Page Title & Quick Action */}
         <div className="flex justify-between items-center mb-6">
           <h1 className="page-title">Dashboard</h1>
           <UploadButton />
         </div>
 
-        {/* 🔥 Stats Section */}
         <StatsCards />
 
-        {/* 🔥 Middle Section */}
         <div className="grid md:grid-cols-3 gap-6">
 
-          {/* Activity */}
           <div className="md:col-span-2">
             <RecentActivity />
           </div>
 
-          {/* AI */}
           <AIAnalysis />
 
         </div>
 
-        {/* 🔥 Extra Section (Future Ready) */}
         <div className="card-md">
           <h2 className="card-header">
             Quick Insights

@@ -8,7 +8,6 @@ const StatsCards = () => {
       {statsData.map((item, index) => {
         const Icon = icons[item.icon];
 
-        // ✅ Safety check (kabhi crash nahi hoga)
         if (!Icon) {
           console.log("Missing icon:", item.icon);
           return null;

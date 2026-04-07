@@ -1,6 +1,69 @@
+export const heroStats = [
+  { id: 1, value: "5,000+", label: "HR Professionals", color: "text-indigo-600" },
+  { id: 2, value: "250+", label: "Resumes Screened", color: "text-violet-600" },
+  { id: 3, value: "15s", label: "Avg Match Time", color: "text-emerald-600" },
+];
+
+export const heroFeatures = [
+  "Scores each bullet point for maximum impact",
+  "Checks for inconsistencies and optimal length",
+  "Analyzes word choice and removes filler words",
+  "Identifies key keywords and industry buzzwords",
+  "Style and brevity optimization",
+  "AI-driven recruitment alignment",
+];
+
 export const candidatesData = [
-  { id: 1, name: "Ali Khan", role: "Frontend Developer", status: "Pending" },
-  { id: 2, name: "Sara Ahmed", role: "UI Designer", status: "Reviewed" },
+  {
+    id: 1,
+    name: "Bilal Ahmed",
+    email: "bilal@example.com",
+    role: "Frontend Developer",
+    experience: "3 years",
+    skills: ["React", "Node.js", "Tailwind CSS"],
+    score: 85,
+    status: "Shortlisted",
+  },
+  {
+    id: 2,
+    name: "Sara Khan",
+    email: "sara@example.com",
+    role: "Backend Developer",
+    experience: "5 years",
+    skills: ["Python", "Django", "Machine Learning"],
+    score: 78,
+    status: "Pending",
+  },
+  {
+    id: 3,
+    name: "Ali Raza",
+    email: "ali@example.com",
+    role: "Data Analyst",
+    experience: "2 years",
+    skills: ["Excel", "SQL", "Python"],
+    score: 65,
+    status: "Rejected",
+  },
+  {
+    id: 4,
+    name: "Usman Tariq",
+    email: "usman@example.com",
+    role: "Frontend Developer",
+    experience: "4 years",
+    skills: ["Vue.js", "CSS", "JavaScript"],
+    score: 72,
+    status: "Pending",
+  },
+  {
+    id: 5,
+    name: "Hina Ali",
+    email: "hina@example.com",
+    role: "QA Engineer",
+    experience: "3 years",
+    skills: ["Selenium", "Jest", "Cypress"],
+    score: 88,
+    status: "Shortlisted",
+  },
 ];
 
 export const aiAnalysisData = [
@@ -107,3 +170,5 @@ export const gradientMap = {
   violet: "from-violet-500 to-purple-500",
   emerald: "from-emerald-500 to-teal-500",
 };
+
+
