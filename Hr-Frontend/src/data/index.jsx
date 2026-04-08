@@ -13,6 +13,47 @@ export const heroFeatures = [
   "AI-driven recruitment alignment",
 ];
 
+
+export const jobStatusColors = {
+  Open: "bg-green-100 text-green-600",
+  Closed: "bg-red-100 text-red-600",
+  Paused: "bg-yellow-100 text-yellow-600",
+};
+
+export const candidateStatusColors = {
+  Shortlisted: "bg-green-100 text-green-600",
+  Pending: "bg-yellow-100 text-yellow-600",
+  Rejected: "bg-red-100 text-red-600",
+};
+
+
+export const jobStatusList = ["All", "Open", "Closed", "Paused"];
+
+export const departments = [
+  "All",
+  "Engineering",
+  "Design",
+  "HR",
+  "Data",
+];
+
+export const roles = [
+  "All",
+  "Frontend Developer",
+  "Backend Developer",
+  "Data Analyst",
+  "UI/UX Designer",
+];
+
+export const experienceLevels = [
+  "All",
+  "1 year",
+  "2 years",
+  "3 years",
+  "5+ years",
+];
+
+
 export const candidatesData = [
   {
     id: 1,
@@ -30,7 +71,7 @@ export const candidatesData = [
     email: "sara@example.com",
     role: "Backend Developer",
     experience: "5 years",
-    skills: ["Python", "Django", "Machine Learning"],
+    skills: ["Python", "Django"],
     score: 78,
     status: "Pending",
   },
@@ -40,43 +81,40 @@ export const candidatesData = [
     email: "ali@example.com",
     role: "Data Analyst",
     experience: "2 years",
-    skills: ["Excel", "SQL", "Python"],
+    skills: ["Excel", "SQL"],
     score: 65,
     status: "Rejected",
   },
-  {
-    id: 4,
-    name: "Usman Tariq",
-    email: "usman@example.com",
-    role: "Frontend Developer",
-    experience: "4 years",
-    skills: ["Vue.js", "CSS", "JavaScript"],
-    score: 72,
-    status: "Pending",
-  },
-  {
-    id: 5,
-    name: "Hina Ali",
-    email: "hina@example.com",
-    role: "QA Engineer",
-    experience: "3 years",
-    skills: ["Selenium", "Jest", "Cypress"],
-    score: 88,
-    status: "Shortlisted",
-  },
 ];
+
+
+export const jobOpeningsData = [
+  { id: 1, title: "Frontend Developer", department: "Engineering", openings: 3, status: "Open" },
+  { id: 2, title: "Backend Developer", department: "Engineering", openings: 2, status: "Paused" },
+  { id: 3, title: "UI/UX Designer", department: "Design", openings: 1, status: "Closed" },
+  { id: 4, title: "HR Manager", department: "HR", openings: 1, status: "Open" },
+  { id: 5, title: "Data Analyst", department: "Data", openings: 2, status: "Closed" },
+];
+
 
 export const aiAnalysisData = [
   { id: 1, label: "Average Resume Score", value: "78%" },
   { id: 2, label: "Top Skill Detected", value: "React.js" },
 ];
 
-export const jobOpeningsData = [
-  { id: 1, title: "Frontend Developer", department: "Engineering", openings: 3, status: "Open" },
-  { id: 2, title: "Backend Developer", department: "Engineering", openings: 2, status: "Closed" },
-  { id: 3, title: "UI/UX Designer", department: "Design", openings: 1, status: "Open" },
-  { id: 4, title: "HR Manager", department: "Human Resources", openings: 1, status: "Open" },
-  { id: 5, title: "Data Analyst", department: "Data", openings: 2, status: "Closed" },
+
+export const resumeData = [
+  { id: 1, name: "Ali Khan", role: "Frontend Developer", status: "Pending" },
+  { id: 2, name: "Sara Ahmed", role: "UI Designer", status: "Shortlisted" },
+  { id: 3, name: "Usman Tariq", role: "Backend Developer", status: "Rejected" },
+];
+
+
+export const statsData = [
+  { title: "Total Resumes", value: 120, icon: "FileIcon", color: "text-blue-500" },
+  { title: "Shortlisted", value: 70, icon: "CheckIcon", color: "text-green-500" },
+  { title: "Rejected", value: 30, icon: "TimesIcon", color: "text-red-500" },
+  { title: "Pending", value: 20, icon: "ClockIcon", color: "text-yellow-500" },
 ];
 
 export const recentActivityData = [
@@ -85,16 +123,21 @@ export const recentActivityData = [
   { id: 3, text: "Usman Tariq was rejected" },
 ];
 
-export const resumeData = [
-  { id: 1, name: "Ali Khan", role: "Frontend Developer", status: "Pending" },
-  { id: 2, name: "Sara Ahmed", role: "UI Designer", status: "Shortlisted" },
-  { id: 3, name: "Usman Tariq", role: "Backend Developer", status: "Rejected" },
+
+export const featuresData = [
+  { icon: "TargetIcon", title: "Smart AI Matching", description: "AI automatically matches candidates with job requirements." },
+  { icon: "LightningIcon", title: "Instant Resume Scoring", description: "Get resume scores instantly with AI analysis." },
+  { icon: "ChartIcon", title: "Candidate Ranking Dashboard", description: "View ranked candidates in a powerful dashboard." },
+  { icon: "BrainIcon", title: "Skill Gap Detection", description: "Identify missing skills in candidates instantly." },
+  { icon: "ShieldIcon", title: "Bias-Free Hiring", description: "Eliminate bias with data-driven decisions." },
+  { icon: "UploadIcon", title: "Bulk Resume Upload", description: "Upload multiple resumes at once easily." },
 ];
 
+
 export const ctaFeatures = [
-  "Free 14-day trial, no strings attached",
-  "Cancel anytime, hassle-free",
-  "24/7 customer support included",
+  "Free 14-day trial",
+  "Cancel anytime",
+  "24/7 support",
 ];
 
 export const ctaStats = [
@@ -104,51 +147,17 @@ export const ctaStats = [
   { id: 4, value: "99%", label: "Accuracy Rate" },
 ];
 
+
 export const workflowSteps = [
-  { id: 1, number: "01", title: "Upload Resumes", description: "Simply drag and drop or bulk upload candidate resumes in any format.", color: "indigo" },
-  { id: 2, number: "02", title: "AI Analysis", description: "Our AI engine analyzes skills, experience, and qualifications instantly.", color: "violet" },
-  { id: 3, number: "03", title: "Get Rankings", description: "Receive ranked candidates with detailed insights and match scores.", color: "emerald" },
+  { id: 1, number: "01", title: "Upload Resumes", description: "Upload candidate resumes easily.", color: "indigo" },
+  { id: 2, number: "02", title: "AI Analysis", description: "AI analyzes skills instantly.", color: "violet" },
+  { id: 3, number: "03", title: "Get Rankings", description: "Receive ranked candidates.", color: "emerald" },
 ];
 
 export const workflowBottomItems = [
-  { id: 1, title: "Automated Screening", desc: "Let AI handle the initial resume review" },
-  { id: 2, title: "Detailed Insights", desc: "Get comprehensive candidate analysis" },
-  { id: 3, title: "Collaborative Hiring", desc: "Share insights with your team seamlessly" },
-];
-
-export const shortlistedData = [
-  { name: "Ali Khan", role: "Frontend Developer", score: "85%" },
-  { name: "Sara Ahmed", role: "UI Designer", score: "80%" },
-];
-
-export const statsData = [
-  { title: "Total Resumes", value: 120, icon: "FileIcon", color: "text-blue-500" },
-  { title: "Shortlisted", value: 70, icon: "CheckIcon", color: "text-green-500" },
-  { title: "Rejected", value: 30, icon: "TimesIcon", color: "text-red-500" },
-  { title: "Pending", value: 20, icon: "ClockIcon", color: "text-yellow-500" },
-];
-
-export const featuresData = [
-  {
-    icon: "TargetIcon",
-    title: "Smart Matching",
-    description: "AI-powered algorithms analyze resumes and match them with job requirements in seconds.",
-  },
-  {
-    icon: "LightningIcon",
-    title: "Lightning Fast",
-    description: "Process hundreds of resumes in minutes, not days. Save 90% of your screening time.",
-  },
-  {
-    icon: "ChartIcon",
-    title: "AI Ranking",
-    description: "Get ranked candidates based on skills, experience, and cultural fit automatically.",
-  },
-  {
-    icon: "LockIcon",
-    title: "Bias-Free",
-    description: "Eliminate unconscious bias with objective, data-driven candidate evaluations.",
-  },
+  { id: 1, title: "Automated Screening", desc: "AI handles resume review" },
+  { id: 2, title: "Detailed Insights", desc: "Get candidate analysis" },
+  { id: 3, title: "Collaborative Hiring", desc: "Share with team" },
 ];
 
 export const sidebarMenu = [
@@ -158,6 +167,7 @@ export const sidebarMenu = [
   { name: "AI Analysis", icon: "AnalysisIcon", path: "/analysis" },
   { name: "Settings", icon: "SettingsIcon", path: "/settings" },
 ];
+
 
 export const shortlistedPageData = [
   { id: 1, name: "Ali Khan", role: "Frontend Developer", score: "85%" },
@@ -170,5 +180,3 @@ export const gradientMap = {
   violet: "from-violet-500 to-purple-500",
   emerald: "from-emerald-500 to-teal-500",
 };
-
-
