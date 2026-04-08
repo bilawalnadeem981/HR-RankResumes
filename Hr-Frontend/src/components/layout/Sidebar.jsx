@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { sidebarMenu } from "../../data";
-import { sidebarIcons } from "../../assets/icons/Sidebar/icon.jsx";
+import { sidebarIcons } from "../../assets/icons/Sidebar.jsx";
 
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);

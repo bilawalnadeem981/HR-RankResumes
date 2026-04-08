@@ -13,18 +13,22 @@ import ShortlistedPage from "../pages/ShortlistedPage";
 import SettingsPage from "../pages/SettingsPage";
 import PublicLayout from '../components/layout/PublicLayout';
 import DashboardLayout from '../components/layout/DashboardLayout';
+import FeatureDetailPage from "../pages/FeatureDetailPage";
+import FeaturesListPage from "../pages/FeaturesListPage";
 
 import { useScrollToTop } from "../utils/common/scroll";
 
 const AppRoutes = () => {
     useScrollToTop();
-    
+
     return (
         <Routes>
             <Route element={<PublicLayout />}>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="/login" element={<LoginPage />} />
+                <Route path="/feature/:featureId" element={<FeatureDetailPage />} />
+                <Route path="/features" element={<FeaturesListPage />} />
             </Route>
 
             <Route element={<DashboardLayout />}>
@@ -32,7 +36,7 @@ const AppRoutes = () => {
                 <Route path="/upload" element={<UploadPage />} />
                 <Route path="/resumes" element={<ResumePage />} />
                 <Route path="/jobs" element={<JobPage />} />
-                <Route path="/candidates" element={<CandidatesPage/>} />
+                <Route path="/candidates" element={<CandidatesPage />} />
                 <Route path="/analysis" element={<AIAnalysisPage />} />
                 <Route path="/shortlisted" element={<ShortlistedPage />} />
                 <Route path="/settings" element={<SettingsPage />} />

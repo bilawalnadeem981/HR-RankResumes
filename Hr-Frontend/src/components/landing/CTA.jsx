@@ -1,6 +1,6 @@
 import React from "react";
 import { ctaFeatures, ctaStats } from "../../data";
-import { CheckIcon } from "../../assets/icons/CTA/icon.jsx";
+import { CheckIcon } from "../../assets/icons/Cta.jsx";
 
 const CTA = () => {
   return (

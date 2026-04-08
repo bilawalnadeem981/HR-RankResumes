@@ -1,5 +1,5 @@
 import React from "react";
-import { JOB_STATUS_COLORS } from "../../../../utils/constants";
+import { jobStatusColors } from "../../../../data";
 
 const JobRow = ({ job }) => {
   return (
@@ -9,7 +9,7 @@ const JobRow = ({ job }) => {
       <td>{job.openings}</td>
 
       <td>
-        <span className={`px-3 py-1 rounded-full text-sm ${JOB_STATUS_COLORS[job.status]}`}>
+        <span className={`px-3 py-1 rounded-full text-sm ${jobStatusColors[job.status]}`}>
           {job.status}
         </span>
       </td>

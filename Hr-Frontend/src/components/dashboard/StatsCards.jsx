@@ -1,6 +1,6 @@
 import React from "react";
 import { statsData } from "../../data";
-import { icons } from "../../assets/icons/StatsCards/icon.jsx";
+import { icons } from "../../assets/icons/StatCard.jsx";
 
 const StatsCards = () => {
   return (
