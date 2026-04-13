@@ -11,7 +11,7 @@ export const icons = {
   TargetIcon: Target,
   LightningIcon: Zap,
   ChartIcon: BarChart2,
-  LockIcon: Shield,
+  ShieldIcon: Shield,
   BrainIcon: Brain,
   UploadIcon: Upload,
 };

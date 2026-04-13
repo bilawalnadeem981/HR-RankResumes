@@ -125,12 +125,90 @@ export const recentActivityData = [
 
 
 export const featuresData = [
-  { icon: "TargetIcon", title: "Smart AI Matching", description: "AI automatically matches candidates with job requirements." },
-  { icon: "LightningIcon", title: "Instant Resume Scoring", description: "Get resume scores instantly with AI analysis." },
-  { icon: "ChartIcon", title: "Candidate Ranking Dashboard", description: "View ranked candidates in a powerful dashboard." },
-  { icon: "BrainIcon", title: "Skill Gap Detection", description: "Identify missing skills in candidates instantly." },
-  { icon: "ShieldIcon", title: "Bias-Free Hiring", description: "Eliminate bias with data-driven decisions." },
-  { icon: "UploadIcon", title: "Bulk Resume Upload", description: "Upload multiple resumes at once easily." },
+  { 
+    id: 1,
+    icon: "TargetIcon", 
+    title: "Smart AI Matching", 
+    description: "AI automatically matches candidates with job requirements.",
+    fullDescription: "Our Smart AI Matching system uses advanced Natural Language Processing (NLP) to go beyond simple keyword matching. It understands the context, intent, and seniority level required for each position, ensuring that the resumes you see are truly aligned with your needs.",
+    points: [
+      "Context-aware skill evaluation",
+      "Semantic search capabilities",
+      "Dynamic weight adjustment for job requirements",
+      "Automated compatibility scoring"
+    ],
+    color: "indigo"
+  },
+  { 
+    id: 2,
+    icon: "LightningIcon", 
+    title: "Instant Resume Scoring", 
+    description: "Get resume scores instantly with AI analysis.",
+    fullDescription: "Speed up your recruitment process with real-time analysis. As soon as a resume is uploaded, our engine calculates a score based on industry standards, job specifications, and historical hiring data, providing immediate insights into candidate potential.",
+    points: [
+      "Real-time processing engine",
+      "Multi-dimensional scoring metrics",
+      "Benchmark comparison against top talent",
+      "Detailed score breakdown per skill"
+    ],
+    color: "violet"
+  },
+  { 
+    id: 3,
+    icon: "ChartIcon", 
+    title: "Candidate Ranking Dashboard", 
+    description: "View ranked candidates in a powerful dashboard.",
+    fullDescription: "Make data-driven decisions with our comprehensive dashboard. Sort, filter, and compare candidates based on their AI-generated scores. The intuitive interface provides a clear hierarchy of the best talent available for your open roles.",
+    points: [
+      "Visual candidate comparison charts",
+      "Customizable ranking criteria",
+      "Filter by experience, skills, and scores",
+      "Collaborative notes and feedback tracking"
+    ],
+    color: "emerald"
+  },
+  { 
+    id: 4,
+    icon: "BrainIcon", 
+    title: "Skill Gap Detection", 
+    description: "Identify missing skills in candidates instantly.",
+    fullDescription: "Perfect your hiring strategy by understanding exactly what's missing. Our AI identifies the 'gaps' between a candidate's profile and your job description, helping you decide if training is an option or if you need to keep looking.",
+    points: [
+      "Automated gap analysis",
+      "Training and development suggestions",
+      "Requirement vs. Profile heatmap",
+      "Market availability assessment"
+    ],
+    color: "indigo"
+  },
+  { 
+    id: 5,
+    icon: "ShieldIcon", 
+    title: "Bias-Free Hiring", 
+    description: "Eliminate bias with data-driven decisions.",
+    fullDescription: "Promote diversity and inclusion by focusing purely on qualifications. Our AI can be configured to anonymize candidate data, ensuring that early screening decisions are based entirely on merit and skill match.",
+    points: [
+      "Anonymized screening options",
+      "Objective performance metrics",
+      "Data-backed diversity insights",
+      "Traceable and audit-friendly decisions"
+    ],
+    color: "violet"
+  },
+  { 
+    id: 6,
+    icon: "UploadIcon", 
+    title: "Bulk Resume Upload", 
+    description: "Upload multiple resumes at once easily.",
+    fullDescription: "Handle large volumes of data without breaking a sweat. Whether you have ten resumes or ten thousand, our bulk upload feature processes them all seamlessly, populating your database with parsed information in seconds.",
+    points: [
+      "Support for PDF, DOCX, and TXT",
+      "Drag-and-drop batch processing",
+      "Automated data extraction and normalization",
+      "Duplicate detection and merging"
+    ],
+    color: "emerald"
+  },
 ];
 
 
@@ -148,10 +226,37 @@ export const ctaStats = [
 ];
 
 
+export const howItWorksData = [
+  { 
+    id: 1, 
+    icon: "UploadIcon", 
+    title: "Upload Resumes", 
+    description: "Upload candidate resumes easily and quickly using our secure bulk upload tool.",
+    color: "indigo",
+    step: "01"
+  },
+  { 
+    id: 2, 
+    icon: "BrainIcon", 
+    title: "AI Analysis", 
+    description: "AI analyzes skills instantly using advanced natural language processing.",
+    color: "violet",
+    step: "02"
+  },
+  { 
+    id: 3, 
+    icon: "ChartIcon", 
+    title: "Get Rankings", 
+    description: "Receive ranked candidates based on job compatibility and skill match.",
+    color: "emerald",
+    step: "03"
+  },
+];
+
 export const workflowSteps = [
-  { id: 1, number: "01", title: "Upload Resumes", description: "Upload candidate resumes easily.", color: "indigo" },
-  { id: 2, number: "02", title: "AI Analysis", description: "AI analyzes skills instantly.", color: "violet" },
-  { id: 3, number: "03", title: "Get Rankings", description: "Receive ranked candidates.", color: "emerald" },
+  { id: 1, number: "01", icon: "UploadIcon", title: "Upload Resumes", description: "Upload candidate resumes easily.", color: "indigo" },
+  { id: 2, number: "02", icon: "BrainIcon", title: "AI Analysis", description: "AI analyzes skills instantly.", color: "violet" },
+  { id: 3, number: "03", icon: "ChartIcon", title: "Get Rankings", description: "Receive ranked candidates.", color: "emerald" },
 ];
 
 export const workflowBottomItems = [
@@ -180,3 +285,33 @@ export const gradientMap = {
   violet: "from-violet-500 to-purple-500",
   emerald: "from-emerald-500 to-teal-500",
 };
+
+export const resultsData = [
+  {
+    id: 1,
+    icon: "TimeIcon",
+    title: "90% Reduction in Screening Time",
+    description: "Our AI helps HR teams screen thousands of resumes in minutes instead of weeks.",
+    fullDescription: "By automating the initial screening process, RankResumes AI allows recruitment teams to bypass the manual labor of reading every single application. Our sophisticated NLP engine parses and scores resumes against job descriptions instantly, ensuring that human recruiters only spend time on high-potential candidates.",
+    impact: "Recruiters save an average of 32 hours per week on initial candidate screening.",
+    color: "indigo"
+  },
+  {
+    id: 2,
+    icon: "QualityIcon",
+    title: "15x Better Candidate Quality",
+    description: "Focus on the top 1% of talent identified by our advanced ranking algorithms.",
+    fullDescription: "Our ranking algorithm doesn't just look for keywords; it evaluates skill depth, professional trajectory, and compatibility with your specific company culture. This results in a much higher conversion rate from interview to hire, as the candidates being seen are fundamentally better matches for the role.",
+    impact: "Companies report a 45% increase in offer acceptance rates from top-ranked candidates.",
+    color: "violet"
+  },
+  {
+    id: 3,
+    icon: "BiasIcon",
+    title: "Eliminated Hiring Bias",
+    description: "Data-driven decisions that focus purely on merit and skill match.",
+    fullDescription: "RankResumes AI is designed to focus strictly on objective data points. By removing identifiable traits in the early screening phases and focusing on proven skills and experience, we help organizations build more diverse and talented teams based on pure merit.",
+    impact: "70% increase in workforce diversity in the first 6 months of implementation.",
+    color: "emerald"
+  }
+];
