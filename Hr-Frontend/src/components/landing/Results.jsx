@@ -1,8 +1,9 @@
 import React from "react";
 import { resultsData, gradientMap } from "../../data";
 import { Link } from "react-router-dom";
-import { icons } from "../../assets/icons/Results.jsx";
+
 import { createSlug } from "../../utils/common/helper";
+
 
 const Results = ({ preview = false }) => {
   // Pattern match: filter data if preview is true
@@ -21,7 +22,8 @@ const Results = ({ preview = false }) => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {dataToShow.map((result) => {
-            const Icon = icons[result.icon];
+            const Icon = result.icon;
+
             
             return (
               <Link

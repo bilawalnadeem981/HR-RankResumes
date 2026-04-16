@@ -1,42 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useCandidateFilters } from "../../../hooks/dashboard/useCandidateFilters";
 
-const CandidateFilters = ({ candidates, setCandidates, originalData }) => {
-  const [filters, setFilters] = useState({
-    search: "",
-    role: "All",
-    status: "All",
-  });
-
-  const roles = ["All", ...new Set(originalData.map((c) => c.role || "Developer"))];
-  const statuses = ["All", ...new Set(originalData.map((c) => c.status))];
-
-  const handleFilterChange = (e) => {
-    const { name, value } = e.target;
-    setFilters({ ...filters, [name]: value });
-  };
-
-  useEffect(() => {
-    let filtered = [...originalData];
-
-    if (filters.search) {
-      const searchLower = filters.search.toLowerCase();
-      filtered = filtered.filter(
-        (c) =>
-          c.name.toLowerCase().includes(searchLower) ||
-          c.email.toLowerCase().includes(searchLower)
-      );
-    }
-
-    if (filters.role !== "All") {
-      filtered = filtered.filter((c) => (c.role || "Developer") === filters.role);
-    }
-
-    if (filters.status !== "All") {
-      filtered = filtered.filter((c) => c.status === filters.status);
-    }
-
-    setCandidates(filtered);
-  }, [filters, originalData, setCandidates]);
+const CandidateFilters = ({ setCandidates, originalData }) => {
+  const { filters, roles, statuses, handleFilterChange } = useCandidateFilters(originalData, setCandidates);
 
   return (
     <div className="mb-6 flex flex-col sm:flex-row gap-4 items-center">

@@ -1,8 +1,9 @@
 import React from "react";
 import { resultsData } from "../data";
 import { Link } from "react-router-dom";
-import { icons } from "../assets/icons/Results.jsx";
+
 import { createSlug } from "../utils/common/helper";
+
 
 const ResultsListPage = () => {
   return (
@@ -16,7 +17,8 @@ const ResultsListPage = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {resultsData.map((result) => {
-          const Icon = icons[result.icon];
+          const Icon = result.icon;
+
           
           return (
             <Link

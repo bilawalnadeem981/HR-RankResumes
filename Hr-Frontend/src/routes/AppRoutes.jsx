@@ -3,16 +3,18 @@ import { Routes, Route } from 'react-router-dom';
 
 // Pages
 import LandingPage from '../pages/LandingPage';
-import SignupPage from '../pages/SignupPage';
-import LoginPage from "../pages/LoginPage";
-import DashboardPage from "../pages/DashboardPage";
-import UploadPage from "../pages/UploadPage";
-import ResumePage from "../pages/ResumePage";
-import JobPage from "../pages/JobPage";
-import CandidatesPage from "../pages/CandidatesPage";
-import AIAnalysisPage from "../pages/AIAnalysisPage";
-import ShortlistedPage from "../pages/ShortlistedPage";
-import SettingsPage from "../pages/SettingsPage";
+import SignupPage from '../pages/auth/SignupPage';
+import LoginPage from "../pages/auth/LoginPage";
+
+import DashboardPage from "../pages/dashboard/DashboardPage";
+import UploadPage from "../pages/dashboard/UploadPage";
+import ResumePage from "../pages/dashboard/ResumePage";
+import JobPage from "../pages/dashboard/JobPage";
+import CandidatesPage from "../pages/dashboard/CandidatesPage";
+import AIAnalysisPage from "../pages/dashboard/AIAnalysisPage";
+import ShortlistedPage from "../pages/dashboard/ShortlistedPage";
+import SettingsPage from "../pages/dashboard/SettingsPage";
+
 import FeatureDetailPage from "../pages/FeatureDetailPage";
 import FeaturesListPage from "../pages/FeaturesListPage";
 import HowItWorksDetailPage from "../pages/HowItWorksDetailPage";
@@ -34,7 +36,6 @@ const AppRoutes = () => {
         <Routes>
             {/* ------------------ PUBLIC ROUTES ------------------ */}
             <Route element={<PublicLayout />}>
-                {/* Landing page with Features preview section */}
                 <Route path="/" element={<LandingPage />} />
 
                 {/* Signup / Login */}
@@ -42,8 +43,8 @@ const AppRoutes = () => {
                 <Route path="/login" element={<LoginPage />} />
 
                 {/* Features pages */}
-                <Route path="/features" element={<FeaturesListPage />} /> {/* Full features list page */}
-                <Route path="/features/:id" element={<FeatureDetailPage />} /> {/* Single feature detail page */}
+                <Route path="/features" element={<FeaturesListPage />} />
+                <Route path="/features/:id" element={<FeatureDetailPage />} />
 
                 {/* How It Works pages */}
                 <Route path="/how-it-works" element={<HowItWorksListPage />} />

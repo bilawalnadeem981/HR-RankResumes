@@ -1,8 +1,9 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { resultsData, gradientMap } from "../data";
-import { icons } from "../assets/icons/Results.jsx";
+
 import { findBySlug } from "../utils/common/helper";
+
 
 const ResultDetailPage = () => {
   const { id } = useParams();
@@ -20,7 +21,8 @@ const ResultDetailPage = () => {
     );
   }
 
-  const Icon = icons[result.icon];
+  const Icon = result.icon;
+
 
   return (
     <div className="min-h-screen bg-white pt-32 pb-16">
@@ -66,32 +68,32 @@ const ResultDetailPage = () => {
             </p>
 
             <div className="bg-gray-900 rounded-3xl p-10 text-white relative overflow-hidden">
-               <span className="absolute top-0 right-0 w-64 h-64 bg-indigo-500 rounded-full blur-[120px] opacity-20 translate-x-1/2 -translate-y-1/2"></span>
-               <h4 className="text-indigo-400 font-bold text-sm tracking-widest uppercase mb-4">Key Outcome</h4>
-               <p className="text-2xl sm:text-3xl font-bold mb-6">
-                 "{result.impact}"
-               </p>
-               <div className="flex items-center gap-4 text-gray-400">
-                  <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center">🏆</div>
-                  <p className="text-sm">Verified Industry Standard result</p>
-               </div>
+              <span className="absolute top-0 right-0 w-64 h-64 bg-indigo-500 rounded-full blur-[120px] opacity-20 translate-x-1/2 -translate-y-1/2"></span>
+              <h4 className="text-indigo-400 font-bold text-sm tracking-widest uppercase mb-4">Key Outcome</h4>
+              <p className="text-2xl sm:text-3xl font-bold mb-6">
+                "{result.impact}"
+              </p>
+              <div className="flex items-center gap-4 text-gray-400">
+                <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center">🏆</div>
+                <p className="text-sm">Verified Industry Standard result</p>
+              </div>
             </div>
 
             <div className="mt-20 space-y-12">
-               <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">How it was achieved</h3>
-                  <p>Through the integration of RankResumes AI, the recruitment workflow was fundamentally redesigned to prioritize data-backed insights over manual screening.</p>
-               </div>
-               <div className="grid md:grid-cols-2 gap-8">
-                  <div className="p-8 bg-gray-50 rounded-2xl border border-gray-100">
-                    <h4 className="font-bold text-gray-900 mb-2">Technological Integration</h4>
-                    <p className="text-sm">API-first approach allowed seamless connection with existing HRIS and ATS platforms.</p>
-                  </div>
-                  <div className="p-8 bg-gray-50 rounded-2xl border border-gray-100">
-                    <h4 className="font-bold text-gray-900 mb-2">AI Training</h4>
-                    <p className="text-sm">Continuous learning models ensured that the AI adapt to specific industry terminologies and nuances.</p>
-                  </div>
-               </div>
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">How it was achieved</h3>
+                <p>Through the integration of RankResumes AI, the recruitment workflow was fundamentally redesigned to prioritize data-backed insights over manual screening.</p>
+              </div>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="p-8 bg-gray-50 rounded-2xl border border-gray-100">
+                  <h4 className="font-bold text-gray-900 mb-2">Technological Integration</h4>
+                  <p className="text-sm">API-first approach allowed seamless connection with existing HRIS and ATS platforms.</p>
+                </div>
+                <div className="p-8 bg-gray-50 rounded-2xl border border-gray-100">
+                  <h4 className="font-bold text-gray-900 mb-2">AI Training</h4>
+                  <p className="text-sm">Continuous learning models ensured that the AI adapt to specific industry terminologies and nuances.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

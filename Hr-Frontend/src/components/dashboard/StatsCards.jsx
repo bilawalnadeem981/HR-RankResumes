@@ -1,24 +1,15 @@
 import React from "react";
 import { statsData } from "../../data";
-import { icons } from "../../assets/icons/StatCard.jsx";
 
 const StatsCards = () => {
   return (
     <div className="grid md:grid-cols-4 gap-4 mb-6">
       {statsData.map((item, index) => {
-        const Icon = icons[item.icon];
-
-        if (!Icon) {
-          console.log("Missing icon:", item.icon);
-          return null;
-        }
+        const Icon = item.icon;
 
         return (
-          <div
-            key={index}
-            className="card-md flex items-center gap-3"
-          >
-            <Icon className={`${item.color} w-6 h-6`} />
+          <div key={index} className="card-md flex items-center gap-3">
+            {Icon && <Icon className={`w-6 h-6 ${item.color}`} />}
 
             <div>
               <p className="text-gray-500">{item.title}</p>

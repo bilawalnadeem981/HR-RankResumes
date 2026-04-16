@@ -1,4 +1,6 @@
-import UploadButton from "../components/dashboard/UploadButton";
+import UploadButton from "../../components/ui/UploadButton";
+
+
 
 const UploadPage = () => {
   return (

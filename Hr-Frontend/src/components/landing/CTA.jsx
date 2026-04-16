@@ -1,6 +1,7 @@
 import React from "react";
 import { ctaFeatures, ctaStats } from "../../data";
-import { CheckIcon } from "../../assets/icons/Cta.jsx";
+import { Check } from "lucide-react";
+
 
 const CTA = () => {
   return (
@@ -8,7 +9,7 @@ const CTA = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-8">
           <span className="inline-block bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold">
-            ✨ Start Your Free Trial
+            Start Your Free Trial
           </span>
           <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
             Ready to Transform Your Hiring Process?
@@ -22,7 +23,8 @@ const CTA = () => {
             {ctaFeatures.map((text, i) => (
               <div key={i} className="flex items-center gap-3">
                 <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
-                  <CheckIcon />
+                  <Check className="w-4 h-4 text-white" />
+
                 </div>
                 <p className="text-white font-medium">{text}</p>
               </div>

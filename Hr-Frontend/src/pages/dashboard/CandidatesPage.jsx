@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { candidatesData } from "../data";
-import CandidateTable from "../components/dashboard/candidates/CandidateTable";
-import CandidateFilters from "../components/dashboard/candidates/CandidateFilters";
+import { candidatesData } from "../../data";
+import CandidateTable from "../../components/dashboard/candidates/CandidateTable";
+import CandidateFilters from "../../components/dashboard/candidates/CandidateFilters";
+
 
 const CandidatesPage = () => {
   const [candidates, setCandidates] = useState(candidatesData);

@@ -1,85 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useSignupForm } from '../../hooks/auth/useSignupForm';
 
 const SignupForm = () => {
-    const [formData, setFormData] = useState({
-        fullName: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
-    });
-
-    const [errors, setErrors] = useState({
-        fullName: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
-    });
-
-    const validateField = (name, value) => {
-        let error = '';
-
-        if (name === 'fullName') {
-            if (!value) error = 'Full name is required';
-        }
-
-        if (name === 'email') {
-            if (!value) error = 'Email is required';
-            else if (!value.includes('@')) error = 'Email must include @';
-            else if (!value.includes('.')) error = 'Email must include domain (e.g., .com)';
-            else if (!/\S+@\S+\.\S+/.test(value)) error = 'Email format is invalid';
-        }
-
-        if (name === 'password') {
-            if (!value) error = 'Password is required';
-            else if (value.length < 6) error = 'Password must be at least 6 characters';
-            else if (value.length > 20) error = 'Password cannot exceed 20 characters';
-            else if (!/[!@#$%^&*]/.test(value))
-                error = 'Password must include at least 1 special character (!@#$%^&*)';
-        }
-
-        if (name === 'confirmPassword') {
-            if (!value) error = 'Please confirm your password';
-            else if (value !== formData.password) error = 'Passwords do not match';
-        }
-
-        return error;
-    };
-
-    const handleChange = (e) => {
-        let { name, value } = e.target;
-
-        if (name === 'email') value = value.replace(/[^a-zA-Z0-9@._-]/g, "");
-
-        setFormData({ ...formData, [name]: value });
-
-        const error = validateField(name, value);
-        setErrors({ ...errors, [name]: error });
-
-        if (name === 'password' && formData.confirmPassword) {
-            const confirmError = validateField('confirmPassword', formData.confirmPassword);
-            setErrors((prev) => ({ ...prev, confirmPassword: confirmError }));
-        }
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        const fullNameError = validateField('fullName', formData.fullName);
-        const emailError = validateField('email', formData.email);
-        const passwordError = validateField('password', formData.password);
-        const confirmPasswordError = validateField('confirmPassword', formData.confirmPassword);
-
-        setErrors({
-            fullName: fullNameError,
-            email: emailError,
-            password: passwordError,
-            confirmPassword: confirmPasswordError
-        });
-
-        if (fullNameError || emailError || passwordError || confirmPasswordError) return;
-
-        console.log('Form submitted:', formData);
-    };
+    const { formData, errors, handleChange, handleSubmit } = useSignupForm();
 
     return (
         <div className="form-card transform transition-all duration-300 hover:shadow-2xl">
@@ -151,7 +75,10 @@ const SignupForm = () => {
             </form>
 
             <p className="mt-6 text-center text-sm text-gray-500">
-                Already have an account? <a href="/login" className="text-indigo-600 hover:text-indigo-700 font-semibold">Login here</a>
+                Already have an account?{" "}
+                <Link to="/login" className="text-indigo-600 hover:text-indigo-700 font-semibold">
+                    Login here
+                </Link>
             </p>
         </div>
     );

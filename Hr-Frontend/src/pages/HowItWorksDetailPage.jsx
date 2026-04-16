@@ -1,8 +1,9 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { howItWorksData, gradientMap, workflowBottomItems } from "../data";
-import { icons } from "../assets/icons/HowItWorks.jsx";
+
 import { findBySlug } from "../utils/common/helper";
+
 
 const HowItWorksDetailPage = () => {
   const { id } = useParams();
@@ -20,7 +21,8 @@ const HowItWorksDetailPage = () => {
     );
   }
 
-  const Icon = icons[step.icon];
+  const Icon = step.icon;
+
 
   return (
     <div className="min-h-screen bg-white pt-24 pb-16">

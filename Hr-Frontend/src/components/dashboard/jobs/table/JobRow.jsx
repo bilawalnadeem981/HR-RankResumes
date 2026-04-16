@@ -1,5 +1,4 @@
-import React from "react";
-import { jobStatusColors } from "../../../../data";
+import { getStatusColor } from "../../../../utils/common/helper";
 
 const JobRow = ({ job }) => {
   return (
@@ -9,10 +8,11 @@ const JobRow = ({ job }) => {
       <td>{job.openings}</td>
 
       <td>
-        <span className={`px-3 py-1 rounded-full text-sm ${jobStatusColors[job.status]}`}>
+        <span className={`px-3 py-1 rounded-full text-xs font-semibold text-white shadow-sm ${getStatusColor(job.status)}`}>
           {job.status}
         </span>
       </td>
+
 
       <td>
         <button className="text-blue-600 mr-2">View</button>

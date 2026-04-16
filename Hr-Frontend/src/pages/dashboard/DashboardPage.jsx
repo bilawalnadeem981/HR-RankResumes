@@ -1,7 +1,9 @@
-import StatsCards from "../components/dashboard/StatsCards";
-import RecentActivity from "../components/dashboard/RecentActivity";
-import AIAnalysis from "../components/dashboard/AIAnalysis";
-import UploadButton from "../components/dashboard/UploadButton";
+import StatsCards from "../../components/dashboard/StatsCards";
+import RecentActivity from "../../components/dashboard/RecentActivity";
+import AIAnalysis from "../../components/dashboard/AIAnalysis";
+import UploadButton from "../../components/ui/UploadButton";
+
+
 
 const DashboardPage = () => {
   return (

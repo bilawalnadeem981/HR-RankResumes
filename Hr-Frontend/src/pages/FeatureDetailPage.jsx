@@ -1,8 +1,9 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { featuresData, gradientMap } from "../data";
-import { icons } from "../assets/icons/Feature.jsx";
+
 import { findBySlug } from "../utils/common/helper";
+
 
 const FeatureDetailPage = () => {
   const { id } = useParams();
@@ -19,7 +20,8 @@ const FeatureDetailPage = () => {
     );
   }
 
-  const Icon = icons[feature.icon];
+  const Icon = feature.icon;
+
 
   return (
     <div className="max-w-4xl mx-auto pt-32 p-6">

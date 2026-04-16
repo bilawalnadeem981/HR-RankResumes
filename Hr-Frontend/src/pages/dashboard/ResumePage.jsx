@@ -1,4 +1,6 @@
-import ResumeTable from "../components/dashboard/ResumeTable";
+import React, { useState } from "react";
+import ResumeTable from "../../components/dashboard/ResumeTable";
+
 
 const ResumePage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,7 +14,8 @@ const ResumePage = () => {
       <input
         type="text"
         placeholder="Search..."
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={(event) => setSearchTerm(event.target.value)}
+
         className="border p-2"
       />
 

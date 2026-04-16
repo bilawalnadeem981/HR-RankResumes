@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { jobOpeningsData } from "../data";
-import JobFilters from "../components/dashboard/jobs/JobFilters";
-import JobTable from "../components/dashboard/jobs/table/JobTable";
-import JobStats from "../components/dashboard/jobs/JobStats";
+import { jobOpeningsData } from "../../data";
+import JobFilters from "../../components/dashboard/jobs/JobFilters";
+import JobTable from "../../components/dashboard/jobs/table/JobTable";
+import JobStats from "../../components/dashboard/jobs/JobStats";
+
 
 const JobsPage = () => {
   const [jobs, setJobs] = useState(jobOpeningsData);

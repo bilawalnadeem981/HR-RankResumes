@@ -1,7 +1,6 @@
 import React from "react";
 import { featuresData } from "../../data";
 import { Link } from "react-router-dom";
-import { icons } from "../../assets/icons/Feature.jsx";
 import { createSlug } from "../../utils/common/helper";
 
 const Features = ({ preview = true }) => {
@@ -17,15 +16,18 @@ const Features = ({ preview = true }) => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {dataToShow.map((f) => {
-            const Icon = icons[f.icon];
+            const Icon = f.icon;
 
             return (
               <Link
                 key={f.id}
-                to={`/feature/${createSlug(f.title)}`}
+                to={`/features/${createSlug(f.title)}`}
+
                 className="group bg-gray-50 p-6 rounded-2xl border hover:shadow-lg hover:-translate-y-1 transition"
               >
-                {Icon && <Icon className="w-10 h-10 mb-3 text-indigo-500" />}
+                {Icon && (
+                  <Icon className="w-10 h-10 mb-3 text-indigo-500" />
+                )}
                 <h3 className="text-xl font-bold mb-2">{f.title}</h3>
                 <p className="text-gray-600">{f.description}</p>
               </Link>

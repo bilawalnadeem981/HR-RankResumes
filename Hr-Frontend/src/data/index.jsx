@@ -1,3 +1,20 @@
+import {
+  Upload,
+  Brain,
+  BarChart2,
+  Target,
+  Zap,
+  Shield,
+  FileText,
+  CheckCircle,
+  XCircle,
+  Clock,
+  Timer,
+  Trophy,
+  Scale
+} from "lucide-react";
+import { FaHome, FaUsers, FaBriefcase, FaChartBar, FaCog } from "react-icons/fa";
+
 export const heroStats = [
   { id: 1, value: "5,000+", label: "HR Professionals", color: "text-indigo-600" },
   { id: 2, value: "250+", label: "Resumes Screened", color: "text-violet-600" },
@@ -97,10 +114,53 @@ export const jobOpeningsData = [
 ];
 
 
-export const aiAnalysisData = [
-  { id: 1, label: "Average Resume Score", value: "78%" },
-  { id: 2, label: "Top Skill Detected", value: "React.js" },
-];
+export const aiAnalysisData = {
+  header: {
+    title: "AI Analysis",
+    description: "Deep analytical insights into candidate performance and skill distributions",
+    actionButton: "+ Run New Analysis"
+  },
+  stats: [
+    { label: "Avg Match Score", value: "78%", icon: Target, color: "text-indigo-600" },
+    { label: "Skill Accuracy", value: "95%", icon: Brain, color: "text-violet-600" },
+    { label: "Reports Generated", value: "1.2k", icon: FileText, color: "text-emerald-600" },
+    { label: "Time Saved", value: "450h", icon: Timer, color: "text-blue-600" }
+  ],
+  reports: [
+    {
+      id: 1,
+      candidate: "Bilal Ahmed",
+      role: "Frontend Developer",
+      score: 85,
+      skillsMatch: "High",
+      sentiment: "Positive",
+      lastUpdated: "2024-03-20"
+    },
+    {
+      id: 2,
+      candidate: "Sara Khan",
+      role: "Backend Developer",
+      score: 78,
+      skillsMatch: "Medium",
+      sentiment: "Neutral",
+      lastUpdated: "2024-03-19"
+    },
+    {
+      id: 3,
+      candidate: "Ali Raza",
+      role: "Data Analyst",
+      score: 65,
+      skillsMatch: "Low",
+      sentiment: "Positive",
+      lastUpdated: "2024-03-18"
+    }
+  ],
+  filters: {
+    roles: ["All", "Frontend Developer", "Backend Developer", "Data Analyst", "UI/UX Designer"],
+    matchLevels: ["All", "High", "Medium", "Low"]
+  }
+};
+
 
 
 export const resumeData = [
@@ -111,10 +171,10 @@ export const resumeData = [
 
 
 export const statsData = [
-  { title: "Total Resumes", value: 120, icon: "FileIcon", color: "text-blue-500" },
-  { title: "Shortlisted", value: 70, icon: "CheckIcon", color: "text-green-500" },
-  { title: "Rejected", value: 30, icon: "TimesIcon", color: "text-red-500" },
-  { title: "Pending", value: 20, icon: "ClockIcon", color: "text-yellow-500" },
+  { title: "Total Resumes", value: 120, icon: FileText, color: "text-blue-500" },
+  { title: "Shortlisted", value: 70, icon: CheckCircle, color: "text-green-500" },
+  { title: "Rejected", value: 30, icon: XCircle, color: "text-red-500" },
+  { title: "Pending", value: 20, icon: Clock, color: "text-yellow-500" },
 ];
 
 export const recentActivityData = [
@@ -127,7 +187,7 @@ export const recentActivityData = [
 export const featuresData = [
   { 
     id: 1,
-    icon: "TargetIcon", 
+    icon: Target, 
     title: "Smart AI Matching", 
     description: "AI automatically matches candidates with job requirements.",
     fullDescription: "Our Smart AI Matching system uses advanced Natural Language Processing (NLP) to go beyond simple keyword matching. It understands the context, intent, and seniority level required for each position, ensuring that the resumes you see are truly aligned with your needs.",
@@ -141,7 +201,7 @@ export const featuresData = [
   },
   { 
     id: 2,
-    icon: "LightningIcon", 
+    icon: Zap, 
     title: "Instant Resume Scoring", 
     description: "Get resume scores instantly with AI analysis.",
     fullDescription: "Speed up your recruitment process with real-time analysis. As soon as a resume is uploaded, our engine calculates a score based on industry standards, job specifications, and historical hiring data, providing immediate insights into candidate potential.",
@@ -155,7 +215,7 @@ export const featuresData = [
   },
   { 
     id: 3,
-    icon: "ChartIcon", 
+    icon: BarChart2, 
     title: "Candidate Ranking Dashboard", 
     description: "View ranked candidates in a powerful dashboard.",
     fullDescription: "Make data-driven decisions with our comprehensive dashboard. Sort, filter, and compare candidates based on their AI-generated scores. The intuitive interface provides a clear hierarchy of the best talent available for your open roles.",
@@ -169,7 +229,7 @@ export const featuresData = [
   },
   { 
     id: 4,
-    icon: "BrainIcon", 
+    icon: Brain, 
     title: "Skill Gap Detection", 
     description: "Identify missing skills in candidates instantly.",
     fullDescription: "Perfect your hiring strategy by understanding exactly what's missing. Our AI identifies the 'gaps' between a candidate's profile and your job description, helping you decide if training is an option or if you need to keep looking.",
@@ -183,7 +243,7 @@ export const featuresData = [
   },
   { 
     id: 5,
-    icon: "ShieldIcon", 
+    icon: Shield, 
     title: "Bias-Free Hiring", 
     description: "Eliminate bias with data-driven decisions.",
     fullDescription: "Promote diversity and inclusion by focusing purely on qualifications. Our AI can be configured to anonymize candidate data, ensuring that early screening decisions are based entirely on merit and skill match.",
@@ -197,7 +257,7 @@ export const featuresData = [
   },
   { 
     id: 6,
-    icon: "UploadIcon", 
+    icon: Upload, 
     title: "Bulk Resume Upload", 
     description: "Upload multiple resumes at once easily.",
     fullDescription: "Handle large volumes of data without breaking a sweat. Whether you have ten resumes or ten thousand, our bulk upload feature processes them all seamlessly, populating your database with parsed information in seconds.",
@@ -229,7 +289,7 @@ export const ctaStats = [
 export const howItWorksData = [
   { 
     id: 1, 
-    icon: "UploadIcon", 
+    icon: Upload, 
     title: "Upload Resumes", 
     description: "Upload candidate resumes easily and quickly using our secure bulk upload tool.",
     color: "indigo",
@@ -237,7 +297,7 @@ export const howItWorksData = [
   },
   { 
     id: 2, 
-    icon: "BrainIcon", 
+    icon: Brain, 
     title: "AI Analysis", 
     description: "AI analyzes skills instantly using advanced natural language processing.",
     color: "violet",
@@ -245,7 +305,7 @@ export const howItWorksData = [
   },
   { 
     id: 3, 
-    icon: "ChartIcon", 
+    icon: BarChart2, 
     title: "Get Rankings", 
     description: "Receive ranked candidates based on job compatibility and skill match.",
     color: "emerald",
@@ -254,9 +314,9 @@ export const howItWorksData = [
 ];
 
 export const workflowSteps = [
-  { id: 1, number: "01", icon: "UploadIcon", title: "Upload Resumes", description: "Upload candidate resumes easily.", color: "indigo" },
-  { id: 2, number: "02", icon: "BrainIcon", title: "AI Analysis", description: "AI analyzes skills instantly.", color: "violet" },
-  { id: 3, number: "03", icon: "ChartIcon", title: "Get Rankings", description: "Receive ranked candidates.", color: "emerald" },
+  { id: 1, number: "01", icon: Upload, title: "Upload Resumes", description: "Upload candidate resumes easily.", color: "indigo" },
+  { id: 2, number: "02", icon: Brain, title: "AI Analysis", description: "AI analyzes skills instantly.", color: "violet" },
+  { id: 3, number: "03", icon: BarChart2, title: "Get Rankings", description: "Receive ranked candidates.", color: "emerald" },
 ];
 
 export const workflowBottomItems = [
@@ -266,11 +326,11 @@ export const workflowBottomItems = [
 ];
 
 export const sidebarMenu = [
-  { name: "Dashboard", icon: "DashboardIcon", path: "/dashboard" },
-  { name: "Candidates", icon: "CandidatesIcon", path: "/candidates" },
-  { name: "Jobs", icon: "JobsIcon", path: "/jobs" },
-  { name: "AI Analysis", icon: "AnalysisIcon", path: "/analysis" },
-  { name: "Settings", icon: "SettingsIcon", path: "/settings" },
+  { name: "Dashboard", icon: FaHome, path: "/dashboard" },
+  { name: "Candidates", icon: FaUsers, path: "/candidates" },
+  { name: "Jobs", icon: FaBriefcase, path: "/jobs" },
+  { name: "AI Analysis", icon: FaChartBar, path: "/analysis" },
+  { name: "Settings", icon: FaCog, path: "/settings" },
 ];
 
 
@@ -289,7 +349,7 @@ export const gradientMap = {
 export const resultsData = [
   {
     id: 1,
-    icon: "TimeIcon",
+    icon: Timer,
     title: "90% Reduction in Screening Time",
     description: "Our AI helps HR teams screen thousands of resumes in minutes instead of weeks.",
     fullDescription: "By automating the initial screening process, RankResumes AI allows recruitment teams to bypass the manual labor of reading every single application. Our sophisticated NLP engine parses and scores resumes against job descriptions instantly, ensuring that human recruiters only spend time on high-potential candidates.",
@@ -298,7 +358,7 @@ export const resultsData = [
   },
   {
     id: 2,
-    icon: "QualityIcon",
+    icon: Trophy,
     title: "15x Better Candidate Quality",
     description: "Focus on the top 1% of talent identified by our advanced ranking algorithms.",
     fullDescription: "Our ranking algorithm doesn't just look for keywords; it evaluates skill depth, professional trajectory, and compatibility with your specific company culture. This results in a much higher conversion rate from interview to hire, as the candidates being seen are fundamentally better matches for the role.",
@@ -307,7 +367,7 @@ export const resultsData = [
   },
   {
     id: 3,
-    icon: "BiasIcon",
+    icon: Scale,
     title: "Eliminated Hiring Bias",
     description: "Data-driven decisions that focus purely on merit and skill match.",
     fullDescription: "RankResumes AI is designed to focus strictly on objective data points. By removing identifiable traits in the early screening phases and focusing on proven skills and experience, we help organizations build more diverse and talented teams based on pure merit.",

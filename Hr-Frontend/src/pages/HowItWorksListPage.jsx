@@ -1,8 +1,8 @@
 import React from "react";
 import { howItWorksData } from "../data";
 import { Link } from "react-router-dom";
-import { icons } from "../assets/icons/HowItWorks.jsx";
 import { createSlug } from "../utils/common/helper";
+
 
 const HowItWorksListPage = () => {
   return (
@@ -16,8 +16,9 @@ const HowItWorksListPage = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {howItWorksData.map((step) => {
-          const Icon = icons[step.icon];
-          
+          const Icon = step.icon;
+
+
           return (
             <Link
               key={step.id}
@@ -32,7 +33,7 @@ const HowItWorksListPage = () => {
                 <h2 className="text-2xl font-bold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors">{step.title}</h2>
                 <p className="text-gray-600 leading-relaxed">{step.description}</p>
                 <div className="mt-8 text-indigo-600 font-semibold flex items-center gap-2">
-                   View full details <span>→</span>
+                  View full details <span>→</span>
                 </div>
               </div>
             </Link>

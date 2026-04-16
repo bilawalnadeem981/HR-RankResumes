@@ -1,7 +1,6 @@
 import React from "react";
 import { howItWorksData, gradientMap } from "../../data";
 import { Link } from "react-router-dom";
-import { icons } from "../../assets/icons/HowItWorks.jsx";
 import { createSlug } from "../../utils/common/helper";
 
 const HowItWorks = ({ preview = false }) => {
@@ -16,12 +15,14 @@ const HowItWorks = ({ preview = false }) => {
         <header className="text-center mb-16 space-y-4">
           <h2 className="text-sm font-semibold text-indigo-600 uppercase tracking-wide">Flow</h2>
           <h3 className="text-4xl lg:text-5xl font-bold text-gray-900">How It Works</h3>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">Three simple steps to transform your recruitment process</p>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Three simple steps to transform your recruitment process
+          </p>
         </header>
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {dataToShow.map((step) => {
-            const Icon = icons[step.icon];
+            const Icon = step.icon; // ✅ direct icon
 
             return (
               <Link
@@ -29,15 +30,24 @@ const HowItWorks = ({ preview = false }) => {
                 to={`/how-it-works/${createSlug(step.title)}`}
                 className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-gray-100 text-center block"
               >
-                <span className={`absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg transform rotate-12 transition-transform group-hover:rotate-0 bg-gradient-to-br ${gradientMap[step.color]}`}>
+                <span
+                  className={`absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg transform rotate-12 transition-transform group-hover:rotate-0 bg-gradient-to-br ${
+                    gradientMap[step.color]
+                  }`}
+                >
                   {step.step}
                 </span>
+
                 <div className="flex justify-center mb-6">
                   {Icon && <Icon className="w-12 h-12 text-indigo-500" />}
                 </div>
-                <h4 className="text-2xl font-bold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors">{step.title}</h4>
+
+                <h4 className="text-2xl font-bold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors">
+                  {step.title}
+                </h4>
+
                 <p className="text-gray-600">{step.description}</p>
-                
+
                 <div className="mt-6 text-indigo-600 font-semibold flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                   Learn more <span>→</span>
                 </div>

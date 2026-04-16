@@ -1,4 +1,4 @@
-import React from "react";
+import { getStatusColor } from "../../../utils/common/helper";
 
 const CandidateRow = ({ candidate }) => {
   return (
@@ -8,32 +8,31 @@ const CandidateRow = ({ candidate }) => {
       <td>{candidate.role}</td>
       <td>{candidate.experience}</td>
 
-      <td>
-        {candidate.skills.map((skill, i) => (
-          <span
-            key={i}
-            className="bg-indigo-100 text-indigo-600 px-2 py-1 mr-2 rounded text-sm"
-          >
-            {skill}
-          </span>
-        ))}
+      <td className="max-w-[200px]">
+        <div className="flex flex-wrap gap-1">
+          {candidate.skills.map((skill, i) => (
+            <span
+              key={i}
+              className="bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded text-xs font-medium border border-indigo-100"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
       </td>
 
-      <td className="font-semibold">{candidate.score}%</td>
+      <td className="font-bold text-gray-900">{candidate.score}%</td>
 
       <td>
         <span
-          className={`px-3 py-1 rounded-full text-sm ${
-            candidate.status === "Shortlisted"
-              ? "bg-green-100 text-green-600"
-              : candidate.status === "Pending"
-              ? "bg-yellow-100 text-yellow-600"
-              : "bg-red-100 text-red-600"
-          }`}
+          className={`px-3 py-1 rounded-full text-xs font-semibold text-white shadow-sm ${getStatusColor(
+            candidate.status
+          )}`}
         >
           {candidate.status}
         </span>
       </td>
+
     </tr>
   );
 };
