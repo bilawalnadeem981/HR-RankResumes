@@ -1,0 +1,49 @@
+import { useState, useEffect } from "react";
+import { filterDataBySearchTerm } from "../../utils/common/helper";
+
+export const useSettingsFilters = (originalSettings = []) => {
+  const safeOriginalSettings = Array.isArray(originalSettings) ? originalSettings : [];
+  const [settings, setSettings] = useState(safeOriginalSettings);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedType, setSelectedType] = useState("All");
+
+  useEffect(() => {
+    let filtered = filterDataBySearchTerm(
+      safeOriginalSettings,
+      searchTerm,
+      ["module", "accessLevel"]
+    );
+
+    if (selectedCategory !== "All") {
+      filtered = filtered.filter(
+        (item) => item.category === selectedCategory
+      );
+    }
+
+    if (selectedType !== "All") {
+      filtered = filtered.filter(
+        (item) => item.type === selectedType
+      );
+    }
+
+    setSettings(filtered);
+  }, [searchTerm, selectedCategory, selectedType, safeOriginalSettings]);
+
+  const resetFilters = () => {
+    setSearchTerm("");
+    setSelectedCategory("All");
+    setSelectedType("All");
+  };
+
+  return {
+    settings,
+    searchTerm,
+    selectedCategory,
+    selectedType,
+    setSearchTerm,
+    setSelectedCategory,
+    setSelectedType,
+    resetFilters,
+  };
+};

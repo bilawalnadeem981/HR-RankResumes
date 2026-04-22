@@ -161,6 +161,116 @@ export const aiAnalysisData = {
   }
 };
 
+export const settingsData = {
+  header: {
+    title: "Settings",
+    description: "Manage your account preferences and system configurations",
+    actionButton: "+ Save Changes"
+  },
+  stats: [
+    { label: "Active Sessions", value: "3", icon: Shield, color: "text-indigo-600" },
+    { label: "Storage Used", value: "45%", icon: BarChart2, color: "text-violet-600" },
+    { label: "API Calls", value: "8.5k", icon: Zap, color: "text-emerald-600" },
+    { label: "Last Sync", value: "2m ago", icon: Clock, color: "text-blue-600" }
+  ],
+  settings: [
+    {
+      id: 1,
+      candidate: "System Core",
+      module: "System Core",
+      role: "Admin",
+      accessLevel: "Admin",
+      score: 100,
+      skillsMatch: "High",
+      sentiment: "Optimal",
+      lastUpdated: "2024-03-20"
+    },
+    {
+      id: 2,
+      candidate: "User Profile",
+      module: "User Profile",
+      role: "Editor",
+      accessLevel: "Editor",
+      score: 92,
+      skillsMatch: "High",
+      sentiment: "Stable",
+      lastUpdated: "2024-03-19"
+    },
+    {
+      id: 3,
+      candidate: "Notification Engine",
+      module: "Notification Engine",
+      role: "System",
+      accessLevel: "System",
+      score: 88,
+      skillsMatch: "Medium",
+      sentiment: "Optimal",
+      lastUpdated: "2024-03-18"
+    }
+  ],
+  filters: {
+    roles: ["All", "Admin", "Editor", "System"],
+    matchLevels: ["All", "High", "Medium", "Low"]
+  }
+};
+
+export const usersData = {
+  header: {
+    title: "User Management",
+    description: "Manage system users, roles, and access permissions",
+    actionButton: "+ Add New User"
+  },
+  stats: [
+    { label: "Total Users", value: "1,250", icon: FaUsers, color: "text-indigo-600" },
+    { label: "Active Now", value: "482", icon: Zap, color: "text-violet-600" },
+    { label: "New Signups", value: "+12%", icon: BarChart2, color: "text-emerald-600" },
+    { label: "Pending Invites", value: "15", icon: Clock, color: "text-blue-600" }
+  ],
+  users: [
+    {
+      id: 1,
+      name: "Bilal Nadeem",
+      email: "bilal@example.com",
+      role: "Super Admin",
+      status: "Active",
+      createdDate: "2024-01-15",
+      avatar: "BN"
+    },
+    {
+      id: 2,
+      name: "Ahmed Khan",
+      email: "ahmed@example.com",
+      role: "Hiring Manager",
+      status: "Active",
+      createdDate: "2024-02-10",
+      avatar: "AK"
+    },
+    {
+      id: 3,
+      name: "Sara Ali",
+      email: "sara@example.com",
+      role: "Recruiter",
+      status: "Inactive",
+      createdDate: "2024-03-05",
+      avatar: "SA"
+    },
+    {
+      id: 4,
+      name: "Zainab Raza",
+      email: "zainab@example.com",
+      role: "Admin",
+      status: "Active",
+      createdDate: "2024-03-20",
+      avatar: "ZR"
+    }
+  ],
+  filters: {
+    roles: ["All", "Super Admin", "Admin", "Hiring Manager", "Recruiter"],
+    statuses: ["All", "Active", "Inactive"]
+  }
+};
+
+
 
 
 export const resumeData = [
@@ -177,10 +287,23 @@ export const statsData = [
   { title: "Pending", value: 20, icon: Clock, color: "text-yellow-500" },
 ];
 
+export const userStatsData = [
+  { title: "My Resumes", value: 45, icon: FileText, color: "text-indigo-500" },
+  { title: "Shortlisted", value: 12, icon: CheckCircle, color: "text-emerald-500" },
+  { title: "Jobs Applied", value: 8, icon: FaBriefcase, color: "text-violet-500" },
+  { title: "Avg Score", value: "72%", icon: Target, color: "text-blue-500" },
+];
+
 export const recentActivityData = [
   { id: 1, text: "Ali Khan uploaded a resume" },
   { id: 2, text: "Sara Ahmed was shortlisted" },
   { id: 3, text: "Usman Tariq was rejected" },
+];
+
+export const userActivityData = [
+  { id: 1, text: "Profile updated successfully" },
+  { id: 2, text: "Application for Frontend Dev received" },
+  { id: 3, text: "New skill 'React' added to profile" },
 ];
 
 
@@ -327,9 +450,10 @@ export const workflowBottomItems = [
 
 export const sidebarMenu = [
   { name: "Dashboard", icon: FaHome, path: "/dashboard" },
+  { name: "Users", icon: FaUsers, path: "/users", adminOnly: true },
   { name: "Candidates", icon: FaUsers, path: "/candidates" },
   { name: "Jobs", icon: FaBriefcase, path: "/jobs" },
-  { name: "AI Analysis", icon: FaChartBar, path: "/analysis" },
+  { name: "AI Analysis", icon: FaChartBar, path: "/analysis", adminOnly: true },
   { name: "Settings", icon: FaCog, path: "/settings" },
 ];
 

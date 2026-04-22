@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { sidebarMenu } from "../../data";
 
-const Sidebar = () => {
+const Sidebar = ({ role }) => {
   const [collapsed, setCollapsed] = useState(false);
+
+  const filteredMenu = sidebarMenu.filter(item => !item.adminOnly || role === "admin");
 
   return (
     <div
@@ -18,7 +20,7 @@ const Sidebar = () => {
       </button>
 
       <ul className="space-y-4">
-        {sidebarMenu.map((item, index) => {
+        {filteredMenu.map((item, index) => {
           const Icon = item.icon;
 
           return (

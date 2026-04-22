@@ -14,6 +14,7 @@ import CandidatesPage from "../pages/dashboard/CandidatesPage";
 import AIAnalysisPage from "../pages/dashboard/AIAnalysisPage";
 import ShortlistedPage from "../pages/dashboard/ShortlistedPage";
 import SettingsPage from "../pages/dashboard/SettingsPage";
+import UsersPage from "../pages/dashboard/UsersPage";
 
 import FeatureDetailPage from "../pages/FeatureDetailPage";
 import FeaturesListPage from "../pages/FeaturesListPage";
@@ -65,6 +66,7 @@ const AppRoutes = () => {
                 <Route path="/analysis" element={<AIAnalysisPage />} />
                 <Route path="/shortlisted" element={<ShortlistedPage />} />
                 <Route path="/settings" element={<SettingsPage />} />
+                <Route path="/users" element={<UsersPage />} />
             </Route>
         </Routes>
     );

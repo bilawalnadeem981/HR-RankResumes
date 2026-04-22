@@ -1,0 +1,48 @@
+import { useState, useEffect } from "react";
+import { filterDataBySearchTerm } from "../../utils/common/helper";
+
+export const useAIAnalysisFilters = (originalReports) => {
+  const [reports, setReports] = useState(originalReports);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedRole, setSelectedRole] = useState("All");
+  const [selectedMatchLevel, setSelectedMatchLevel] = useState("All");
+
+  useEffect(() => {
+    let filtered = filterDataBySearchTerm(
+      originalReports,
+      searchTerm,
+      ["candidate", "role"]
+    );
+
+    if (selectedRole !== "All") {
+      filtered = filtered.filter(
+        (report) => report.role === selectedRole
+      );
+    }
+
+    if (selectedMatchLevel !== "All") {
+      filtered = filtered.filter(
+        (report) => report.skillsMatch === selectedMatchLevel
+      );
+    }
+
+    setReports(filtered);
+  }, [searchTerm, selectedRole, selectedMatchLevel, originalReports]);
+
+  const resetFilters = () => {
+    setSearchTerm("");
+    setSelectedRole("All");
+    setSelectedMatchLevel("All");
+  };
+
+  return {
+    reports,
+    searchTerm,
+    selectedRole,
+    selectedMatchLevel,
+    setSearchTerm,
+    setSelectedRole,
+    setSelectedMatchLevel,
+    resetFilters,
+  };
+};
