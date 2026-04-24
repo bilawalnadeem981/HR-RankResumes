@@ -3,26 +3,36 @@ import JobRow from "./JobRow";
 
 const JobTable = ({ jobs }) => {
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full border rounded-lg">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="p-3 text-left">Job Title</th>
-            <th>Department</th>
-            <th>Openings</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
+    <div className="table-wrapper">
+      <div className="overflow-x-auto">
+        <table className="w-full text-left">
+          <thead className="table-head">
+            <tr>
+              <th className="table-th">Job Position</th>
+              <th className="table-th text-center">Department</th>
+              <th className="table-th text-center">Openings</th>
+              <th className="table-th text-center">Status</th>
+              <th className="table-th text-right">Actions</th>
+            </tr>
+          </thead>
 
-        <tbody>
-          {jobs.map(job => (
-            <JobRow key={job.id} job={job} />
-          ))}
-        </tbody>
-      </table>
+          <tbody className="table-body">
+            {jobs.length > 0 ? (
+              jobs.map(job => (
+                <JobRow key={job.id} job={job} />
+              ))
+            ) : (
+              <tr>
+                <td colSpan="5" className="px-6 py-12 text-center text-gray-400 font-medium italic">
+                  No job openings found matching your criteria.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
 
-export default JobTable;
+export default JobTable;

@@ -1,4 +1,5 @@
-import { shortlistedPageData } from "../data";
+import { shortlistedPageData } from "../../data";
+
 
 const ShortlistedTable = () => {
 

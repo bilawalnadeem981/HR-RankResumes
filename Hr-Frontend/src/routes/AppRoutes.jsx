@@ -1,21 +1,33 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+
+// Pages
 import LandingPage from '../pages/LandingPage';
-import SignupPage from '../pages/SignupPage';
-import LoginPage from "../pages/LoginPage";
-import DashboardPage from "../pages/DashboardPage";
-import UploadPage from "../pages/UploadPage";
-import ResumePage from "../pages/ResumePage";
-import JobPage from "../pages/JobPage";
-import CandidatesPage from "../pages/CandidatesPage";
-import AIAnalysisPage from "../pages/AIAnalysisPage";
-import ShortlistedPage from "../pages/ShortlistedPage";
-import SettingsPage from "../pages/SettingsPage";
-import PublicLayout from '../components/layout/PublicLayout';
-import DashboardLayout from '../components/layout/DashboardLayout';
+import SignupPage from '../pages/auth/SignupPage';
+import LoginPage from "../pages/auth/LoginPage";
+
+import DashboardPage from "../pages/dashboard/DashboardPage";
+import UploadPage from "../pages/dashboard/UploadPage";
+import ResumePage from "../pages/dashboard/ResumePage";
+import JobPage from "../pages/dashboard/JobPage";
+import CandidatesPage from "../pages/dashboard/CandidatesPage";
+import AIAnalysisPage from "../pages/dashboard/AIAnalysisPage";
+import ShortlistedPage from "../pages/dashboard/ShortlistedPage";
+import SettingsPage from "../pages/dashboard/SettingsPage";
+import UsersPage from "../pages/dashboard/UsersPage";
+
 import FeatureDetailPage from "../pages/FeatureDetailPage";
 import FeaturesListPage from "../pages/FeaturesListPage";
+import HowItWorksDetailPage from "../pages/HowItWorksDetailPage";
+import HowItWorksListPage from "../pages/HowItWorksListPage";
+import ResultDetailPage from "../pages/ResultDetailPage";
+import ResultsListPage from "../pages/ResultsListPage";
 
+// Layouts
+import PublicLayout from '../components/layout/PublicLayout';
+import DashboardLayout from '../components/layout/DashboardLayout';
+
+// Utils
 import { useScrollToTop } from "../utils/common/scroll";
 
 const AppRoutes = () => {
@@ -23,14 +35,28 @@ const AppRoutes = () => {
 
     return (
         <Routes>
+            {/* ------------------ PUBLIC ROUTES ------------------ */}
             <Route element={<PublicLayout />}>
                 <Route path="/" element={<LandingPage />} />
+
+                {/* Signup / Login */}
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="/login" element={<LoginPage />} />
-                <Route path="/feature/:featureId" element={<FeatureDetailPage />} />
+
+                {/* Features pages */}
                 <Route path="/features" element={<FeaturesListPage />} />
+                <Route path="/features/:id" element={<FeatureDetailPage />} />
+
+                {/* How It Works pages */}
+                <Route path="/how-it-works" element={<HowItWorksListPage />} />
+                <Route path="/how-it-works/:id" element={<HowItWorksDetailPage />} />
+
+                {/* Results pages */}
+                <Route path="/results" element={<ResultsListPage />} />
+                <Route path="/results/:id" element={<ResultDetailPage />} />
             </Route>
 
+            {/* ------------------ DASHBOARD ROUTES ------------------ */}
             <Route element={<DashboardLayout />}>
                 <Route path="/dashboard" element={<DashboardPage />} />
                 <Route path="/upload" element={<UploadPage />} />
@@ -40,6 +66,7 @@ const AppRoutes = () => {
                 <Route path="/analysis" element={<AIAnalysisPage />} />
                 <Route path="/shortlisted" element={<ShortlistedPage />} />
                 <Route path="/settings" element={<SettingsPage />} />
+                <Route path="/users" element={<UsersPage />} />
             </Route>
         </Routes>
     );
