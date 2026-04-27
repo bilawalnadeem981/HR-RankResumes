@@ -4,7 +4,8 @@ import Sidebar from "./Sidebar";
 import Header from "./Header";
 
 const DashboardLayout = () => {
-    const [role, setRole] = React.useState("admin"); // Default to admin for now
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    const [role, setRole] = React.useState(user.role || "user");
 
     return (
         <div className="flex bg-gray-100 min-h-screen">

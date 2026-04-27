@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { apiCall } from "../../utils/api";
+
 
 export const useLoginForm = () => {
   const navigate = useNavigate();
@@ -47,9 +49,12 @@ export const useLoginForm = () => {
     setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const [loading, setLoading] = useState(false);
+  const [apiError, setApiError] = useState("");
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setApiError("");
 
     const emailError = validateField("email", formData.email);
     const passwordError = validateField("password", formData.password);
@@ -57,9 +62,30 @@ export const useLoginForm = () => {
 
     if (emailError || passwordError) return;
 
-    console.log("Login Data:", formData);
-    navigate("/dashboard");
+    setLoading(true);
+    try {
+      const data = await apiCall("/auth/login", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify({ 
+        id: data.id, 
+        fullName: data.fullName, 
+        email: data.email,
+        role: data.role 
+      }));
+      
+      console.log("Login Success:", data);
+      navigate("/dashboard");
+    } catch (error) {
+      setApiError(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
+
 
   return {
     formData,

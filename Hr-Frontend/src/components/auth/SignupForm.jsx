@@ -3,12 +3,18 @@ import { Link } from 'react-router-dom';
 import { useSignupForm } from '../../hooks/auth/useSignupForm';
 
 const SignupForm = () => {
-    const { formData, errors, handleChange, handleSubmit } = useSignupForm();
+    const { formData, errors, handleChange, handleSubmit, loading, apiError } = useSignupForm();
 
     return (
         <div className="form-card transform transition-all duration-300 hover:shadow-2xl">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">Signup</h2>
             <p className="text-gray-500 text-sm mb-6">Join HR RankResumes - AI-powered screening</p>
+
+            {apiError && (
+                <div className="bg-red-50 text-red-500 p-3 rounded-lg mb-4 text-sm border border-red-100">
+                    {apiError}
+                </div>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
@@ -71,8 +77,23 @@ const SignupForm = () => {
                     {errors.confirmPassword && <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>}
                 </div>
 
-                <button type="submit" className="btn-primary-lg">Sign Up</button>
+                <button 
+                    type="submit" 
+                    className="btn-primary-lg flex items-center justify-center w-full"
+                    disabled={loading}
+                >
+                    {loading ? (
+                        <span className="flex items-center">
+                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Creating account...
+                        </span>
+                    ) : "Sign Up"}
+                </button>
             </form>
+
 
             <p className="mt-6 text-center text-sm text-gray-500">
                 Already have an account?{" "}
