@@ -30,6 +30,9 @@ import DashboardLayout from '../components/layout/DashboardLayout';
 // Utils
 import { useScrollToTop } from "../utils/common/scroll";
 
+import ProtectedRoute from './ProtectedRoute';
+import AdminRoute from './AdminRoute';
+
 const AppRoutes = () => {
     useScrollToTop();
 
@@ -56,20 +59,28 @@ const AppRoutes = () => {
                 <Route path="/results/:id" element={<ResultDetailPage />} />
             </Route>
 
-            {/* ------------------ DASHBOARD ROUTES ------------------ */}
-            <Route element={<DashboardLayout />}>
-                <Route path="/dashboard" element={<DashboardPage />} />
-                <Route path="/upload" element={<UploadPage />} />
-                <Route path="/resumes" element={<ResumePage />} />
-                <Route path="/jobs" element={<JobPage />} />
-                <Route path="/candidates" element={<CandidatesPage />} />
-                <Route path="/analysis" element={<AIAnalysisPage />} />
-                <Route path="/shortlisted" element={<ShortlistedPage />} />
-                <Route path="/settings" element={<SettingsPage />} />
-                <Route path="/users" element={<UsersPage />} />
+            {/* ------------------ PROTECTED DASHBOARD ROUTES ------------------ */}
+            <Route element={<ProtectedRoute />}>
+                <Route element={<DashboardLayout />}>
+                    <Route path="/dashboard" element={<DashboardPage />} />
+                    <Route path="/settings" element={<SettingsPage />} />
+                    
+                    {/* Admin Only Routes */}
+                    <Route element={<AdminRoute />}>
+                        <Route path="/upload" element={<UploadPage />} />
+                        <Route path="/resumes" element={<ResumePage />} />
+                        <Route path="/jobs" element={<JobPage />} />
+                        <Route path="/candidates" element={<CandidatesPage />} />
+                        <Route path="/analysis" element={<AIAnalysisPage />} />
+                        <Route path="/shortlisted" element={<ShortlistedPage />} />
+                        <Route path="/users" element={<UsersPage />} />
+                    </Route>
+                </Route>
             </Route>
         </Routes>
     );
 };
+
+
 
 export default AppRoutes;

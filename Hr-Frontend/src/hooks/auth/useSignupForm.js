@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { apiCall } from "../../services/api";
+import { useAuth } from "../../context/AuthContext";
 
 export const useSignupForm = () => {
     const navigate = useNavigate();
+    const { login: authLogin } = useAuth();
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -16,6 +19,9 @@ export const useSignupForm = () => {
         password: '',
         confirmPassword: ''
     });
+
+    const [loading, setLoading] = useState(false);
+    const [apiError, setApiError] = useState("");
 
     const validateField = (name, value, currentPassword) => {
         let error = '';
@@ -67,9 +73,9 @@ export const useSignupForm = () => {
         });
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-
+        setApiError("");
 
         const fullNameError = validateField('fullName', formData.fullName);
         const emailError = validateField('email', formData.email);
@@ -85,14 +91,37 @@ export const useSignupForm = () => {
 
         if (fullNameError || emailError || passwordError || confirmPasswordError) return;
 
-        console.log('Form submitted:', formData);
-        navigate("/dashboard");
+        setLoading(true);
+        try {
+            const { confirmPassword, ...signupData } = formData;
+            const data = await apiCall("/auth/signup", {
+                method: "POST",
+                body: JSON.stringify(signupData),
+            });
+
+            authLogin({ 
+                id: data.id, 
+                fullName: data.fullName, 
+                email: data.email,
+                role: data.role 
+            }, data.token);
+            
+            console.log('Signup Success:', data);
+            navigate("/dashboard");
+        } catch (error) {
+            setApiError(error.message);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return {
         formData,
         errors,
+        loading,
+        apiError,
         handleChange,
         handleSubmit
     };
 };
+

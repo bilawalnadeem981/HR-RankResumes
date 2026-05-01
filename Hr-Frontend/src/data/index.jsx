@@ -451,10 +451,11 @@ export const workflowBottomItems = [
 export const sidebarMenu = [
   { name: "Dashboard", icon: FaHome, path: "/dashboard" },
   { name: "Users", icon: FaUsers, path: "/users", adminOnly: true },
-  { name: "Candidates", icon: FaUsers, path: "/candidates" },
-  { name: "Jobs", icon: FaBriefcase, path: "/jobs" },
+  { name: "Candidates", icon: FaUsers, path: "/candidates", adminOnly: true },
+  { name: "Jobs", icon: FaBriefcase, path: "/jobs", adminOnly: true },
   { name: "AI Analysis", icon: FaChartBar, path: "/analysis", adminOnly: true },
   { name: "Settings", icon: FaCog, path: "/settings" },
+
 ];
 
 

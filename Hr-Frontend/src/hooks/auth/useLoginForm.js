@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { apiCall } from "../../services/api";
+import { useAuth } from "../../context/AuthContext";
+
 
 export const useLoginForm = () => {
   const navigate = useNavigate();
+  const { login: authLogin } = useAuth();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({ email: "", password: "" });
 
@@ -47,9 +51,12 @@ export const useLoginForm = () => {
     setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const [loading, setLoading] = useState(false);
+  const [apiError, setApiError] = useState("");
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setApiError("");
 
     const emailError = validateField("email", formData.email);
     const passwordError = validateField("password", formData.password);
@@ -57,9 +64,29 @@ export const useLoginForm = () => {
 
     if (emailError || passwordError) return;
 
-    console.log("Login Data:", formData);
-    navigate("/dashboard");
+    setLoading(true);
+    try {
+      const data = await apiCall("/auth/login", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+
+      authLogin({ 
+        id: data.id, 
+        fullName: data.fullName, 
+        email: data.email,
+        role: data.role 
+      }, data.token);
+      
+      console.log("Login Success:", data);
+      navigate("/dashboard");
+    } catch (error) {
+      setApiError(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
+
 
   return {
     formData,
