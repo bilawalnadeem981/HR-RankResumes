@@ -1,14 +1,14 @@
 import React from "react";
 import { Search, Bell, Settings, ChevronDown, HelpCircle, Shield, LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
-const Header = ({ role, setRole }) => {
+const Header = ({ role }) => {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  const { user, logout } = useAuth();
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
+    logout();
     navigate("/login");
   };
 
@@ -50,7 +50,7 @@ const Header = ({ role, setRole }) => {
         <div className="flex items-center gap-3 cursor-pointer group">
           <div className="flex flex-col items-end hidden sm:flex">
             <span className="text-sm font-black text-gray-900 group-hover:text-indigo-600 transition-colors">
-              {user.fullName || (role === "admin" ? "Admin User" : "Standard User")}
+              {user?.fullName || (role === "admin" ? "Admin User" : "Standard User")}
             </span>
             <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">
               {role === "admin" ? "Super Admin" : "Full Access User"}
@@ -58,7 +58,7 @@ const Header = ({ role, setRole }) => {
           </div>
           <div className="relative">
             <div className={`w-10 h-10 rounded-2xl ${role === 'admin' ? 'bg-indigo-600' : 'bg-emerald-600'} flex items-center justify-center text-white font-black text-sm shadow-lg shadow-indigo-100 group-hover:scale-105 transition-transform duration-300`}>
-              {user.fullName ? user.fullName.substring(0, 2).toUpperCase() : (role === "admin" ? "AU" : "SU")}
+              {user?.fullName ? user.fullName.substring(0, 2).toUpperCase() : (role === "admin" ? "AU" : "SU")}
             </div>
           </div>
           <ChevronDown className="w-4 h-4 text-gray-400 group-hover:text-gray-900 transition-colors" />

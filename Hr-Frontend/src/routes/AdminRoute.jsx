@@ -1,10 +1,13 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const AdminRoute = () => {
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  const { isAdmin, loading } = useAuth();
 
-  if (user.role !== "admin") {
+  if (loading) return null;
+
+  if (!isAdmin) {
     return <Navigate to="/dashboard" replace />;
   }
 

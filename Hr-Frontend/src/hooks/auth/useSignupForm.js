@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { apiCall } from "../../utils/api";
+import { apiCall } from "../../services/api";
+import { useAuth } from "../../context/AuthContext";
 
 export const useSignupForm = () => {
     const navigate = useNavigate();
+    const { login: authLogin } = useAuth();
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -97,14 +99,13 @@ export const useSignupForm = () => {
                 body: JSON.stringify(signupData),
             });
 
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("user", JSON.stringify({ 
+            authLogin({ 
                 id: data.id, 
                 fullName: data.fullName, 
                 email: data.email,
                 role: data.role 
-            }));
-
+            }, data.token);
+            
             console.log('Signup Success:', data);
             navigate("/dashboard");
         } catch (error) {
